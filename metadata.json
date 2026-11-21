@@ -1,0 +1,6 @@
+{
+  "name": "Bell Otomatis PSAS - SMP - SMA Ar-Rohmah Bogor",
+  "description": "Sistem bel otomatis terjadwal untuk pelaksanaan PSAS SMP - SMA Ar-Rohmah Bogor dengan dukungan unggah audio kustom per sesi dan jam digital real-time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

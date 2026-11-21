@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bell Otomatis PSAS - SMP - SMA Ar-Rohmah Bogor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #ffffff;
+      color: #0B192C;
+      overflow-x: hidden;
+    }
+
+    /* Animasi Lonceng Bergetar */
+    @keyframes bell-ring {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(18deg); }
+      20% { transform: rotate(-16deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-12deg); }
+      50% { transform: rotate(10deg); }
+      60% { transform: rotate(-8deg); }
+      70% { transform: rotate(5deg); }
+      80% { transform: rotate(-3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .animate-bell-ring {
+      animation: bell-ring 0.9s ease-in-out infinite;
+      transform-origin: 50% 10%;
+    }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+
+    .card-ringing {
+      animation: pulse-ring 1.5s infinite;
+      border-color: #F59E0B !important;
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%) !important;
+    }
+
+    /* Pola Garis Arsir Miring Corporate Memphis */
+    .memphis-stripes {
+      background-image: repeating-linear-gradient(
+        -45deg,
+        #0A4D7C,
+        #0A4D7C 3px,
+        transparent 3px,
+        transparent 9px
+      );
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #94A3B8;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen relative selection:bg-amber-200 selection:text-sky-950">
+
+  <!-- ==================== LATAR BELAKANG FLAT VECTOR / CORPORATE MEMPHIS ==================== -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <!-- Latar Biru Langit Sisi Kanan seperti Referensi -->
+    <svg class="absolute top-0 right-0 w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path d="M980,0 L1440,0 L1440,900 L820,900 C880,730 1050,650 1020,440 C990,230 1120,120 980,0 Z" fill="#E3F2FD" />
+      <!-- Siluet Gedung Sekolah Ar-Rohmah Lembut di Kanan -->
+      <g opacity="0.45" fill="#BBDDF8">
+        <rect x="1030" y="210" width="130" height="220" rx="6" />
+        <polygon points="1020,210 1095,165 1170,210" />
+        <!-- Jendela Gedung -->
+        <rect x="1050" y="235" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1084" y="235" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1118" y="235" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1050" y="280" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1084" y="280" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1118" y="280" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1050" y="325" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1084" y="325" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <rect x="1118" y="325" width="22" height="28" rx="3" fill="#E3F2FD" />
+        <!-- Sayap Kanan Gedung -->
+        <rect x="1175" y="275" width="240" height="165" rx="6" />
+        <rect x="1200" y="300" width="28" height="35" rx="3" fill="#E3F2FD" />
+        <rect x="1245" y="300" width="28" height="35" rx="3" fill="#E3F2FD" />
+        <rect x="1290" y="300" width="28" height="35" rx="3" fill="#E3F2FD" />
+        <rect x="1335" y="300" width="28" height="35" rx="3" fill="#E3F2FD" />
+      </g>
+    </svg>
+
+    <!-- Gelombang Abstrak Sudut Kiri Atas -->
+    <svg class="absolute -top-6 -left-6 w-72 h-56 sm:w-96 sm:h-64" viewBox="0 0 400 260" fill="none">
+      <path d="M0,0 L360,0 C310,95 210,70 150,145 C90,220 40,210 0,250 Z" fill="#0A4D7C" />
+      <path d="M0,45 C75,55 110,120 75,185 C45,235 15,245 0,255 Z" fill="#F59E0B" />
+    </svg>
+
+    <!-- Gelombang Abstrak Sudut Kanan Atas -->
+    <svg class="absolute -top-4 -right-4 w-72 h-60 sm:w-96 sm:h-72" viewBox="0 0 400 280" fill="none">
+      <path d="M60,0 L400,0 L400,240 C310,235 285,150 205,120 C125,90 110,35 60,0 Z" fill="#F59E0B" />
+      <path d="M185,0 L400,0 L400,190 C335,175 315,115 260,80 C215,50 200,20 185,0 Z" fill="#0A4D7C" />
+    </svg>
+
+    <!-- Gelombang Abstrak Sudut Kiri Bawah -->
+    <svg class="absolute -bottom-6 -left-6 w-80 h-60 sm:w-[440px] sm:h-72" viewBox="0 0 440 280" fill="none">
+      <path d="M0,40 C95,65 115,165 215,190 C315,215 365,240 410,280 L0,280 Z" fill="#F59E0B" />
+      <path d="M0,155 C60,175 85,235 155,280 L0,280 Z" fill="#0A4D7C" />
+    </svg>
+
+    <!-- Gelombang Abstrak Sudut Kanan Bawah -->
+    <svg class="absolute -bottom-6 -right-6 w-80 h-64 sm:w-[460px] sm:h-80" viewBox="0 0 460 320" fill="none">
+      <path d="M460,40 C340,65 300,165 190,195 C95,220 55,275 30,320 L460,320 Z" fill="#0A4D7C" />
+      <path d="M460,135 C385,155 360,235 285,320 L460,320 Z" fill="#F59E0B" opacity="0.9" />
+    </svg>
+
+    <!-- Elemen Dekoratif Memphis (Lingkaran Garis, Zigzag, Bintang 4 Sudut) -->
+    <div class="hidden md:block absolute top-3 left-[58%] w-24 h-24 rounded-full memphis-stripes opacity-85"></div>
+    <div class="hidden lg:block absolute top-[38%] -left-10 w-32 h-32 rounded-full memphis-stripes opacity-85"></div>
+    <div class="hidden md:block absolute -bottom-10 left-[23%] w-28 h-28 rounded-full memphis-stripes opacity-85"></div>
+
+    <!-- Cincin Lingkaran Oranye & Biru -->
+    <div class="hidden sm:block absolute top-6 left-[13%] w-7 h-7 rounded-full border-4 border-[#F59E0B]"></div>
+    <div class="hidden sm:block absolute top-28 left-[5%] w-7 h-7 rounded-full border-2 border-[#0A4D7C] flex items-center justify-center">
+      <div class="w-4 h-4 rounded-full border-2 border-[#0A4D7C]"></div>
+    </div>
+    <div class="hidden lg:block absolute top-14 right-[20%] w-6 h-6 rounded-full border-4 border-[#0A4D7C]"></div>
+    <div class="hidden lg:block absolute top-24 right-[26%] w-6 h-6 rounded-full border-4 border-[#F59E0B]"></div>
+
+    <!-- Bintang 4 Sudut Oranye & Biru -->
+    <svg class="hidden sm:block absolute top-14 left-[20%] w-6 h-6 text-[#0A4D7C]" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2Z"/>
+    </svg>
+    <svg class="hidden sm:block absolute top-8 left-[48%] w-6 h-6 text-[#F59E0B]" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2Z"/>
+    </svg>
+    <svg class="hidden sm:block absolute top-44 left-[10%] w-6 h-6 text-[#F59E0B]" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2Z"/>
+    </svg>
+
+    <!-- Zigzag Memphis -->
+    <svg class="hidden md:block absolute top-20 left-[3%] w-24 h-6" viewBox="0 0 100 20" fill="none">
+      <polyline points="0,15 12,5 24,15 36,5 48,15 60,5 72,15 84,5 96,15" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <svg class="hidden lg:block absolute top-14 left-[55%] w-28 h-8" viewBox="0 0 110 30" fill="none">
+      <polyline points="0,12 12,4 24,12 36,4 48,12 60,4 72,12 84,4 96,12" stroke="#F59E0B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="0,24 12,16 24,24 36,16 48,24 60,16 72,24 84,16 96,24" stroke="#0A4D7C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Ikon Lonceng Klasik Dekoratif Kanan Atas -->
+    <svg class="hidden xl:block absolute top-6 right-6 w-32 h-32 drop-shadow-md" viewBox="0 0 140 140" fill="none">
+      <rect x="52" y="88" width="54" height="36" rx="8" fill="#1E3A5F" />
+      <circle cx="75" cy="64" r="34" fill="#F59E0B" />
+      <circle cx="75" cy="64" r="26" fill="#FBBF24" />
+      <circle cx="75" cy="64" r="6" fill="#FEF3C7" />
+      <line x1="108" y1="64" x2="124" y2="54" stroke="#1E3A5F" stroke-width="5" stroke-linecap="round" />
+      <circle cx="126" cy="53" r="6" fill="#E2E8F0" />
+      <!-- Gelombang Suara Lonceng -->
+      <path d="M35,38 C24,52 24,76 35,90" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" />
+      <path d="M24,28 C10,48 10,80 24,100" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" />
+    </svg>
+
+    <!-- Ikon Lonceng Klasik Dekoratif Kanan Bawah -->
+    <svg class="hidden xl:block absolute bottom-4 right-5 w-28 h-28" viewBox="0 0 140 140" fill="none">
+      <g transform="rotate(-15 70 70)">
+        <rect x="52" y="88" width="54" height="32" rx="8" fill="#1E3A5F" />
+        <circle cx="75" cy="64" r="32" fill="#F59E0B" />
+        <circle cx="75" cy="64" r="24" fill="#FBBF24" />
+        <circle cx="75" cy="64" r="5" fill="#FEF3C7" />
+        <path d="M35,38 C24,52 24,76 35,90" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" />
+        <path d="M24,28 C10,48 10,80 24,100" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" />
+      </g>
+    </svg>
+
+    <!-- ==================== ILUSTRASI FLAT VECTOR SISWI SMP & SMA (HANYA SISWI PEREMPUAN) ==================== -->
+    <!-- Siswi Kiri Bawah (Seragam SMP Biru Dongker + Hijab Putih + Buku Oranye) -->
+    <svg class="hidden 2xl:block fixed bottom-0 left-3 w-48 h-80 z-0" viewBox="0 0 200 340" fill="none">
+      <!-- Rok Panjang Biru Dongker -->
+      <path d="M55,225 L135,225 L148,340 L42,340 Z" fill="#13293D" />
+      <!-- Badan / Blazer Seragam Biru -->
+      <path d="M58,132 C58,118 132,118 132,132 L140,230 L50,230 Z" fill="#0A4D7C" />
+      <!-- Lengan Kiri -->
+      <path d="M58,134 L38,195 L68,205 L75,160" fill="#0A4D7C" />
+      <!-- Lengan Kanan -->
+      <path d="M132,134 L152,195 L118,205 L112,160" fill="#0A4D7C" />
+      <!-- Hijab Putih -->
+      <path d="M54,75 C54,42 136,42 136,75 L146,162 C118,176 72,176 44,162 Z" fill="#F8FAFC" />
+      <path d="M54,158 C80,170 110,170 136,158" stroke="#CBD5E1" stroke-width="2" />
+      <!-- Wajah Siswi -->
+      <path d="M72,72 C72,54 118,54 118,72 L118,96 C118,112 72,112 72,96 Z" fill="#FDBA8C" />
+      <!-- Mata & Senyum -->
+      <circle cx="86" cy="83" r="2.8" fill="#1E293B" />
+      <circle cx="106" cy="83" r="2.8" fill="#1E293B" />
+      <path d="M91,97 Q97,103 103,97" stroke="#9A3412" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <!-- Buku yang Dipegang -->
+      <rect x="74" y="162" width="46" height="58" rx="4" fill="#EA580C" />
+      <rect x="78" y="166" width="38" height="10" rx="2" fill="#FEF3C7" />
+      <!-- Tangan Memegang Buku -->
+      <circle cx="72" cy="195" r="8" fill="#FDBA8C" />
+      <circle cx="118" cy="195" r="8" fill="#FDBA8C" />
+    </svg>
+
+    <!-- Grup 4 Siswi SMP & SMA di Sisi Kanan Bawah (Corporate Memphis Vector, 100% Perempuan Berhijab) -->
+    <svg class="hidden xl:block fixed bottom-0 right-16 w-[430px] h-[470px] z-0" viewBox="0 0 460 500" fill="none">
+      <!-- Daun Dekoratif Belakang Siswi -->
+      <path d="M90,270 C30,240 20,170 55,145 C90,175 105,220 90,270 Z" fill="#0A4D7C" />
+      <path d="M85,295 C25,295 5,245 25,215 C65,225 85,255 85,295 Z" fill="#F59E0B" />
+      <path d="M75,470 C20,440 5,375 35,345 C75,375 88,425 75,470 Z" fill="#FBBF24" />
+      <path d="M65,495 C15,490 -5,445 15,415 C50,425 65,460 65,495 Z" fill="#0A4D7C" />
+
+      <!-- SISWI 1 (Kiri Atas - Seragam Biru SMP + Buku Kuning) -->
+      <g transform="translate(75, 65)">
+        <path d="M35,165 L105,165 L115,310 L25,310 Z" fill="#13293D" />
+        <path d="M35,88 C35,75 105,75 105,88 L112,170 L28,170 Z" fill="#0A4D7C" />
+        <!-- Lengan Menunjuk Ramah -->
+        <path d="M102,92 L152,115 L145,128 L98,112 Z" fill="#0A4D7C" />
+        <circle cx="155" cy="121" r="7" fill="#FDBA8C" />
+        <!-- Hijab Putih -->
+        <path d="M34,42 C34,12 106,12 106,42 L114,115 C90,126 50,126 26,115 Z" fill="#F8FAFC" />
+        <!-- Wajah -->
+        <path d="M52,38 C52,22 92,22 92,38 L92,58 C92,72 52,72 52,58 Z" fill="#FDBA8C" />
+        <circle cx="66" cy="47" r="2.4" fill="#1E293B" />
+        <circle cx="82" cy="47" r="2.4" fill="#1E293B" />
+        <path d="M70,58 Q75,63 80,58" stroke="#9A3412" stroke-width="2" stroke-linecap="round" />
+        <!-- Buku Kuning -->
+        <rect x="52" y="108" width="38" height="48" rx="3" fill="#FACC15" />
+      </g>
+
+      <!-- SISWI 2 (Tengah Atas - Seragam Batik Biru SMA + Buku Oranye) -->
+      <g transform="translate(215, 55)">
+        <path d="M35,165 L105,165 L115,310 L25,310 Z" fill="#13293D" />
+        <!-- Lengan Kiri Menyapa -->
+        <path d="M38,92 L-15,72 L-10,86 L35,110 Z" fill="#0A4D7C" />
+        <circle cx="-18" cy="78" r="7" fill="#FDBA8C" />
+        <!-- Baju Batik Biru -->
+        <path d="M35,88 C35,75 105,75 105,88 L112,170 L28,170 Z" fill="#1D6396" />
+        <path d="M40,100 L100,100 M40,115 L100,115 M40,130 L100,130 M40,145 L100,145" stroke="#93C5FD" stroke-width="2" stroke-dasharray="4 4" />
+        <!-- Hijab Putih -->
+        <path d="M34,42 C34,12 106,12 106,42 L114,115 C90,126 50,126 26,115 Z" fill="#F8FAFC" />
+        <!-- Wajah -->
+        <path d="M48,38 C48,22 88,22 88,38 L88,58 C88,72 48,72 48,58 Z" fill="#FDBA8C" />
+        <circle cx="60" cy="47" r="2.4" fill="#1E293B" />
+        <circle cx="76" cy="47" r="2.4" fill="#1E293B" />
+        <path d="M64,58 Q69,63 74,58" stroke="#9A3412" stroke-width="2" stroke-linecap="round" />
+        <!-- Buku Oranye -->
+        <rect x="44" y="108" width="36" height="46" rx="3" fill="#EA580C" />
+      </g>
+
+      <!-- SISWI 3 (Kanan - Seragam Batik Oranye/Kuning SMA + Menulis di Buku) -->
+      <g transform="translate(325, 85)">
+        <path d="M35,165 L100,165 L108,290 L28,290 Z" fill="#13293D" />
+        <!-- Lengan Oranye -->
+        <path d="M35,92 L5,68 L14,60 L42,88 Z" fill="#F59E0B" />
+        <circle cx="8" cy="62" r="6.5" fill="#FDBA8C" />
+        <!-- Baju Batik Oranye -->
+        <path d="M35,88 C35,75 100,75 100,88 L106,170 L28,170 Z" fill="#D97706" />
+        <rect x="33" y="112" width="68" height="55" fill="#1E3A5F" opacity="0.85" />
+        <path d="M38,122 L96,122 M38,136 L96,136 M38,150 L96,150" stroke="#FBBF24" stroke-width="2" stroke-dasharray="5 3" />
+        <!-- Hijab Putih -->
+        <path d="M34,42 C34,12 100,12 100,42 L108,112 C85,122 50,122 26,112 Z" fill="#F8FAFC" />
+        <!-- Wajah -->
+        <path d="M46,38 C46,22 84,22 84,38 L84,58 C84,72 46,72 46,58 Z" fill="#FDBA8C" />
+        <circle cx="57" cy="47" r="2.4" fill="#1E293B" />
+        <circle cx="72" cy="47" r="2.4" fill="#1E293B" />
+        <path d="M60,58 Q65,63 70,58" stroke="#9A3412" stroke-width="2" stroke-linecap="round" />
+        <!-- Buku Terbuka -->
+        <polygon points="10,125 55,132 95,125 88,142 52,146 16,140" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
+      </g>
+
+      <!-- SISWI 4 (Depan Kiri - Seragam SMP Biru + Buku Oranye) -->
+      <g transform="translate(45, 215)">
+        <path d="M35,175 L108,175 L118,295 L25,295 Z" fill="#13293D" />
+        <path d="M35,95 C35,80 108,80 108,95 L116,180 L28,180 Z" fill="#0A4D7C" />
+        <path d="M104,102 L148,125 L142,138 L100,120 Z" fill="#0A4D7C" />
+        <circle cx="150" cy="131" r="7" fill="#FDBA8C" />
+        <path d="M34,44 C34,12 108,12 108,44 L116,122 C90,134 50,134 26,122 Z" fill="#F8FAFC" />
+        <path d="M52,40 C52,24 94,24 94,40 L94,62 C94,76 52,76 52,62 Z" fill="#FDBA8C" />
+        <circle cx="67" cy="50" r="2.6" fill="#1E293B" />
+        <circle cx="84" cy="50" r="2.6" fill="#1E293B" />
+        <path d="M71,62 Q76,67 81,62" stroke="#9A3412" stroke-width="2.2" stroke-linecap="round" />
+        <rect x="48" y="114" width="40" height="52" rx="4" fill="#EA580C" />
+      </g>
+
+      <!-- SISWI 5 (Depan Kanan - Seragam Batik Oranye/Biru SMA Tersenyum) -->
+      <g transform="translate(185, 210)">
+        <path d="M35,175 L110,175 L120,295 L25,295 Z" fill="#13293D" />
+        <!-- Lengan Kanan Melambai -->
+        <path d="M105,102 L148,74 L156,86 L112,120 Z" fill="#F59E0B" />
+        <circle cx="155" cy="78" r="7" fill="#FDBA8C" />
+        <!-- Baju Batik -->
+        <path d="M35,95 C35,80 110,80 110,95 L118,180 L28,180 Z" fill="#1E3A5F" />
+        <path d="M40,105 L105,105 M40,122 L105,122 M40,139 L105,139 M40,156 L105,156" stroke="#F59E0B" stroke-width="3" stroke-dasharray="6 4" />
+        <path d="M34,44 C34,12 110,12 110,44 L118,122 C92,134 52,134 26,122 Z" fill="#F8FAFC" />
+        <path d="M48,40 C48,24 90,24 90,40 L90,62 C90,76 48,76 48,62 Z" fill="#FDBA8C" />
+        <circle cx="60" cy="50" r="2.6" fill="#1E293B" />
+        <circle cx="77" cy="50" r="2.6" fill="#1E293B" />
+        <path d="M64,62 Q69,68 74,62" stroke="#9A3412" stroke-width="2.2" stroke-linecap="round" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- ==================== KONTEN UTAMA APLIKASI ==================== -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-7">
+
+    <!-- HEADER: LOGO AR-ROHMAH BOGOR & JUDUL -->
+    <header class="flex flex-col items-center text-center mb-5">
+      <!-- Logo Vektor Resmi AR-ROHMAH BOGOR sesuai Gambar Unggahan -->
+      <div class="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-2xl shadow-sm border border-sky-100 mb-3">
+        <!-- Perisai Logo Ar-Rohmah -->
+        <svg class="w-12 h-14 sm:w-14 sm:h-16 shrink-0" viewBox="0 0 100 120" fill="none">
+          <!-- Bintang Oranye di Atas Perisai -->
+          <path d="M50 2L54.5 11.5L64 16L54.5 20.5L50 30L45.5 20.5L36 16L45.5 11.5Z" fill="#F59E0B"/>
+          <!-- Bingkai Perisai Luar Biru -->
+          <path d="M18 32H34V37H23V92L50 108L77 92V37H66V32H82V95L50 114L18 95V32Z" fill="#0A4D7C"/>
+          <!-- Pilar Vertikal Dalam Perisai -->
+          <rect x="28" y="34" width="6" height="44" fill="#0A4D7C"/>
+          <rect x="38" y="30" width="6" height="44" fill="#0A4D7C"/>
+          <rect x="47" y="26" width="6" height="42" fill="#0A4D7C"/>
+          <rect x="56" y="30" width="6" height="44" fill="#0A4D7C"/>
+          <rect x="66" y="34" width="6" height="44" fill="#0A4D7C"/>
+          <!-- Aksen Garis Emas -->
+          <path d="M27 81L46 72V77L27 86V81Z" fill="#F59E0B"/>
+          <path d="M73 81L54 72V77L73 86V81Z" fill="#F59E0B"/>
+          <!-- Ujung Pena di Tengah Bawah -->
+          <path d="M50 71L55 82L52 84V102H48V84L45 82L50 71Z" fill="#0A4D7C"/>
+          <circle cx="50" cy="83" r="1.8" fill="#FFFFFF"/>
+          <!-- Buku Terbuka Bawah -->
+          <path d="M27 88L47 98V104L27 93V88Z" fill="#0A4D7C"/>
+          <path d="M73 88L53 98V104L73 93V88Z" fill="#0A4D7C"/>
+        </svg>
+
+        <!-- Teks Logo AR-ROHMAH BOGOR -->
+        <div class="text-left">
+          <div class="flex items-center font-extrabold text-xl sm:text-2xl tracking-tight text-[#0A4D7C] leading-none">
+            <span>AR</span>
+            <svg class="w-3.5 h-3.5 mx-0.5 text-[#F59E0B]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9Z"/>
+            </svg>
+            <span>R</span>
+            <span class="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#0A4D7C] text-white mx-0.5">
+              <span class="w-2.5 h-2.5 rotate-45 bg-white block"></span>
+            </span>
+            <span>HMAH</span>
+          </div>
+          <div class="flex items-center gap-2 mt-1">
+            <span class="font-extrabold text-lg sm:text-xl tracking-wide text-[#F59E0B] leading-none">BOGOR</span>
+            <span class="h-6 w-[1.5px] bg-[#0A4D7C]"></span>
+            <span class="text-[9px] sm:text-[10px] font-bold text-[#0A4D7C] leading-tight">
+              International Islamic<br/>Boarding School
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Judul Utama Sesuai Gambar Referensi -->
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#0B192C] uppercase">
+        BELL OTOMATIS PSAS
+      </h1>
+      <p class="text-base sm:text-xl font-extrabold text-[#0B192C] tracking-wide mt-0.5 uppercase">
+        SMP - SMA AR-ROHMAH BOGOR
+      </p>
+    </header>
+
+    <!-- PANEL KONTROL OPERATOR: JAM DIGITAL REAL-TIME, COUNTDOWN & AKTIVASI AUDIO -->
+    <section class="max-w-3xl mx-auto bg-white/95 backdrop-blur-md rounded-2xl shadow-md border-2 border-[#DCEFFA] p-4 mb-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <!-- Jam Digital Real-Time -->
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-[#0A4D7C] text-white flex items-center justify-center shadow-inner">
+            <svg class="w-6 h-6 text-[#FBBF24]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 7 12 12 15 15"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <span>Waktu Sekarang (WIB)</span>
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            </div>
+            <div id="liveClock" class="text-2xl sm:text-3xl font-extrabold text-[#0A4D7C] tabular-nums tracking-tight">
+              00:00:00
+            </div>
+            <div id="liveDate" class="text-xs font-medium text-slate-500">Memuat tanggal...</div>
+          </div>
+        </div>
+
+        <!-- Countdown Bel Berikutnya -->
+        <div class="bg-[#DCEFFA]/70 px-4 py-2.5 rounded-xl border border-sky-200 text-center md:text-left min-w-[200px]">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-[#0A4D7C]">Bel Berikutnya</div>
+          <div id="nextBellInfo" class="text-sm font-extrabold text-[#0B192C] mt-0.5">Menghitung jadwal...</div>
+          <div id="nextBellCountdown" class="text-xs font-semibold text-amber-700 tabular-nums">--:--:--</div>
+        </div>
+
+        <!-- Tombol Aktivasi Audio & Kontrol -->
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          <button id="btnEnableAudio" onclick="enableAudioSystem()"
+            class="px-4 py-2.5 rounded-xl font-bold text-sm bg-amber-500 hover:bg-amber-600 text-white shadow-sm transition-all flex items-center gap-2 cursor-pointer">
+            <svg id="audioStatusIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            </svg>
+            <span id="audioStatusText">Aktifkan Sistem Audio</span>
+          </button>
+
+          <button id="btnStopBell" onclick="stopAllAudio()"
+            class="hidden px-4 py-2.5 rounded-xl font-bold text-sm bg-rose-600 hover:bg-rose-700 text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer animate-bounce">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <rect x="6" y="6" width="12" height="12" rx="2"/>
+            </svg>
+            <span>Hentikan Bel</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Baris Status Notifikasi Ringan -->
+      <div id="toastBanner" class="hidden mt-3 px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center justify-between bg-sky-50 text-[#0A4D7C] border border-sky-200">
+        <span id="toastMessage">Sistem siap.</span>
+        <button onclick="hideToast()" class="text-slate-400 hover:text-slate-700 font-bold ml-3">✕</button>
+      </div>
+    </section>
+
+    <!-- ==================== GRID JADWAL BEL (2 KOLOM X 4 BARIS SESUAI GAMBAR) ==================== -->
+    <main class="max-w-3xl mx-auto lg:mx-0 lg:ml-6 xl:ml-10">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-[#F59E0B]"></span>
+          <h2 class="text-sm sm:text-base font-extrabold text-[#0A4D7C] uppercase tracking-wide">
+            Jadwal Bel Otomatis & Unggah Audio
+          </h2>
+        </div>
+        <button onclick="openAddModal()"
+          class="text-xs font-bold px-3 py-1.5 rounded-lg bg-[#0A4D7C] hover:bg-sky-900 text-white transition flex items-center gap-1 shadow-sm cursor-pointer">
+          <span>+ Tambah Jam</span>
+        </button>
+      </div>
+
+      <!-- Grid 2 Kolom seperti pada Referensi -->
+      <div id="scheduleGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Kartu jadwal dirender via JavaScript -->
+      </div>
+    </main>
+
+    <!-- Footer Kecil -->
+    <footer class="max-w-3xl mx-auto lg:mx-0 lg:ml-6 xl:ml-10 mt-6 text-center md:text-left text-xs text-slate-500 font-medium bg-white/80 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-slate-100">
+      💡 <strong>Tips Operator:</strong> Klik <em>"Aktifkan Sistem Audio"</em> saat halaman dibuka agar browser mengizinkan bel berbunyi otomatis. File audio yang diunggah pada tiap jam tersimpan otomatis di browser Anda.
+    </footer>
+  </div>
+
+  <!-- MODAL TAMBAH / EDIT JADWAL -->
+  <div id="scheduleModal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border-2 border-[#DCEFFA]">
+      <h3 id="modalTitle" class="text-lg font-extrabold text-[#0A4D7C] mb-4">Tambah Jadwal Bel</h3>
+      <form id="scheduleForm" onsubmit="saveScheduleForm(event)" class="space-y-4">
+        <input type="hidden" id="editScheduleId" />
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Jam Berbunyi (Format 24 Jam)</label>
+          <input type="time" id="inputTime" required
+            class="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-200 focus:border-[#0A4D7C] focus:outline-none text-lg font-extrabold text-[#0B192C]" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Keterangan / Nama Sesi</label>
+          <input type="text" id="inputLabel" placeholder="Contoh: Bel Berbunyi / Mulai KBM" required
+            class="w-full px-3.5 py-2.5 rounded-xl border-2 border-slate-200 focus:border-[#0A4D7C] focus:outline-none text-sm font-semibold text-[#0B192C]" />
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeModal()"
+            class="px-4 py-2 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-100 cursor-pointer">
+            Batal
+          </button>
+          <button type="submit"
+            class="px-5 py-2 rounded-xl text-sm font-bold bg-[#0A4D7C] hover:bg-sky-900 text-white shadow-sm cursor-pointer">
+            Simpan Jadwal
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== LOGIKA JAVASCRIPT & INDEXEDDB STORAGE ==================== -->
+  <script>
+    // 1. DATA JADWAL DEFAULT (Sesuai 8 Jam pada Gambar Referensi)
+    const DEFAULT_SCHEDULES = [
+      { id: 'bell-1', time: '07:30', label: 'Bel Berbunyi', active: true, fileName: '' },
+      { id: 'bell-2', time: '07:40', label: 'Mulai KBM', active: true, fileName: '' },
+      { id: 'bell-3', time: '08:50', label: 'Istirahat', active: true, fileName: '' },
+      { id: 'bell-4', time: '09:00', label: 'Istirahat', active: true, fileName: '' },
+      { id: 'bell-5', time: '09:30', label: 'Istirahat', active: true, fileName: '' },
+      { id: 'bell-6', time: '09:40', label: 'Istirahat', active: true, fileName: '' },
+      { id: 'bell-7', time: '10:50', label: 'Ujian Selesai', active: true, fileName: '' },
+      { id: 'bell-8', time: '11:00', label: 'Ujian Selesai', active: true, fileName: '' }
+    ];
+
+    let schedules = [];
+    let audioSystemUnlocked = false;
+    let activeAudioPlayer = null;
+    let activeRingingId = null;
+    let lastTriggeredKey = '';
+    let webAudioCtx = null;
+    let chimeInterval = null;
+
+    // 2. INDEXEDDB UNTUK MENYIMPAN FILE AUDIO MP3/WAV PER JAM SECARA PERMANEN
+    const DB_NAME = 'ArRohmahPSASBellDB';
+    const DB_VERSION = 1;
+    const STORE_NAME = 'bellAudios';
+
+    function openAudioDB() {
+      return new Promise((resolve, reject) => {
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+        request.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+          }
+        };
+        request.onsuccess = () => resolve(request.result);
+        request.onerror = () => reject(request.error);
+      });
+    }
+
+    async function saveAudioToDB(id, fileBlob, fileName) {
+      const db = await openAudioDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).put({ id, blob: fileBlob, fileName });
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    async function getAudioFromDB(id) {
+      const db = await openAudioDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const req = tx.objectStore(STORE_NAME).get(id);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function deleteAudioFromDB(id) {
+      const db = await openAudioDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        tx.objectStore(STORE_NAME).delete(id);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+    }
+
+    // 3. MUAT & SIMPAN KONFIGURASI JADWAL DI LOCALSTORAGE
+    function loadSchedules() {
+      try {
+        const saved = localStorage.getItem('arrohmah_psas_schedules_v1');
+        if (saved) {
+          schedules = JSON.parse(saved);
+        } else {
+          schedules = JSON.parse(JSON.stringify(DEFAULT_SCHEDULES));
+          saveSchedulesMeta();
+        }
+      } catch (e) {
+        schedules = JSON.parse(JSON.stringify(DEFAULT_SCHEDULES));
+      }
+      sortSchedules();
+    }
+
+    function saveSchedulesMeta() {
+      localStorage.setItem('arrohmah_psas_schedules_v1', JSON.stringify(schedules));
+    }
+
+    function sortSchedules() {
+      schedules.sort((a, b) => a.time.localeCompare(b.time));
+    }
+
+    // 4. AKTIVASI AUDIO BROWSER & NADA BEL CADANGAN (WEB AUDIO API)
+    function enableAudioSystem() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!webAudioCtx) {
+          webAudioCtx = new AudioContext();
+        }
+        if (webAudioCtx.state === 'suspended') {
+          webAudioCtx.resume();
+        }
+        // Mainkan bip sangat pelan/singkat untuk membuka izin autoplay browser
+        const osc = webAudioCtx.createOscillator();
+        const gain = webAudioCtx.createGain();
+        gain.gain.value = 0.001;
+        osc.connect(gain);
+        gain.connect(webAudioCtx.destination);
+        osc.start();
+        osc.stop(webAudioCtx.currentTime + 0.05);
+
+        audioSystemUnlocked = true;
+        const btn = document.getElementById('btnEnableAudio');
+        btn.classList.remove('bg-amber-500', 'hover:bg-amber-600');
+        btn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+        document.getElementById('audioStatusText').textContent = 'Sistem Audio Aktif ✓';
+        showToast('Sistem audio aktif! Bel akan berbunyi otomatis sesuai jadwal.');
+      } catch (err) {
+        showToast('Gagal mengaktifkan audio browser: ' + err.message);
+      }
+    }
+
+    // Nada Bel Sekolah Klasik (Westminster Chime) menggunakan Web Audio API jika belum ada file unggahan
+    function playFallbackChime(scheduleId) {
+      stopAllAudio(false);
+      activeRingingId = scheduleId;
+      renderSchedules();
+      document.getElementById('btnStopBell').classList.remove('hidden');
+
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!webAudioCtx) webAudioCtx = new AudioContext();
+      if (webAudioCtx.state === 'suspended') webAudioCtx.resume();
+
+      const notes = [659.25, 523.25, 587.33, 392.00]; // E5, C5, D5, G4
+      let step = 0;
+
+      const triggerNote = () => {
+        if (activeRingingId !== scheduleId) return;
+        const freq = notes[step % notes.length];
+        const now = webAudioCtx.currentTime;
+        const osc = webAudioCtx.createOscillator();
+        const gain = webAudioCtx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.45, now + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.75);
+
+        osc.connect(gain);
+        gain.connect(webAudioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.8);
+        step++;
+      };
+
+      triggerNote();
+      chimeInterval = setInterval(() => {
+        if (step >= 8) {
+          stopAllAudio();
+        } else {
+          triggerNote();
+        }
+      }, 650);
+    }
+
+    // 5. MEMUTAR & MENGHENTIKAN AUDIO BEL
+    async function triggerBell(scheduleId, isManualTest = false) {
+      const item = schedules.find(s => s.id === scheduleId);
+      if (!item) return;
+
+      stopAllAudio(false);
+      activeRingingId = scheduleId;
+      renderSchedules();
+      document.getElementById('btnStopBell').classList.remove('hidden');
+
+      showToast(`🔔 Bel ${item.time.replace(':', '.')} (${item.label}) sedang berbunyi!`);
+
+      try {
+        const record = await getAudioFromDB(scheduleId);
+        if (record && record.blob) {
+          const url = URL.createObjectURL(record.blob);
+          const audio = new Audio(url);
+          activeAudioPlayer = audio;
+
+          audio.onended = () => {
+            URL.revokeObjectURL(url);
+            stopAllAudio();
+          };
+          audio.onerror = () => {
+            URL.revokeObjectURL(url);
+            playFallbackChime(scheduleId);
+          };
+
+          await audio.play();
+        } else {
+          // Jika belum ada file yang diunggah, bunyikan bel sekolah bawaan
+          playFallbackChime(scheduleId);
+        }
+      } catch (err) {
+        console.warn('Autoplay butuh interaksi user atau fallback chime:', err);
+        playFallbackChime(scheduleId);
+      }
+    }
+
+    function stopAllAudio(reRender = true) {
+      if (activeAudioPlayer) {
+        activeAudioPlayer.pause();
+        activeAudioPlayer.currentTime = 0;
+        activeAudioPlayer = null;
+      }
+      if (chimeInterval) {
+        clearInterval(chimeInterval);
+        chimeInterval = null;
+      }
+      activeRingingId = null;
+      document.getElementById('btnStopBell').classList.add('hidden');
+      if (reRender) renderSchedules();
+    }
+
+    // 6. UNGGAH & HAPUS FILE AUDIO PER JAM
+    async function handleAudioUpload(scheduleId, inputEl) {
+      const file = inputEl.files && inputEl.files[0];
+      if (!file) return;
+
+      try {
+        await saveAudioToDB(scheduleId, file, file.name);
+        const item = schedules.find(s => s.id === scheduleId);
+        if (item) {
+          item.fileName = file.name;
+          saveSchedulesMeta();
+        }
+        renderSchedules();
+        showToast(`✅ Audio "${file.name}" berhasil dipasang untuk jam ${item.time.replace(':', '.')}.`);
+      } catch (err) {
+        showToast('Gagal menyimpan file audio: ' + err.message);
+      }
+    }
+
+    async function removeUploadedAudio(scheduleId) {
+      await deleteAudioFromDB(scheduleId);
+      const item = schedules.find(s => s.id === scheduleId);
+      if (item) {
+        item.fileName = '';
+        saveSchedulesMeta();
+      }
+      if (activeRingingId === scheduleId) stopAllAudio();
+      renderSchedules();
+      showToast('Audio kustom dihapus, kembali ke nada bel standar.');
+    }
+
+    // 7. EDIT KETERANGAN LANGSUNG, SAKELAR AKTIF, TAMBAH/EDIT/HAPUS JADWAL
+    function toggleScheduleActive(scheduleId) {
+      const item = schedules.find(s => s.id === scheduleId);
+      if (!item) return;
+      item.active = !item.active;
+      saveSchedulesMeta();
+      renderSchedules();
+    }
+
+    function updateLabelInline(scheduleId, newLabel) {
+      const item = schedules.find(s => s.id === scheduleId);
+      if (!item) return;
+      item.label = newLabel.trim() || 'Bel Sekolah';
+      saveSchedulesMeta();
+    }
+
+    function openAddModal() {
+      document.getElementById('modalTitle').textContent = 'Tambah Jadwal Bel Baru';
+      document.getElementById('editScheduleId').value = '';
+      document.getElementById('inputTime').value = '11:30';
+      document.getElementById('inputLabel').value = 'Bel Pulang';
+      document.getElementById('scheduleModal').classList.remove('hidden');
+    }
+
+    function openEditModal(scheduleId) {
+      const item = schedules.find(s => s.id === scheduleId);
+      if (!item) return;
+      document.getElementById('modalTitle').textContent = 'Ubah Jam & Keterangan Bel';
+      document.getElementById('editScheduleId').value = item.id;
+      document.getElementById('inputTime').value = item.time;
+      document.getElementById('inputLabel').value = item.label;
+      document.getElementById('scheduleModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('scheduleModal').classList.add('hidden');
+    }
+
+    function saveScheduleForm(e) {
+      e.preventDefault();
+      const id = document.getElementById('editScheduleId').value;
+      const time = document.getElementById('inputTime').value;
+      const label = document.getElementById('inputLabel').value.trim();
+
+      if (id) {
+        const item = schedules.find(s => s.id === id);
+        if (item) {
+          item.time = time;
+          item.label = label;
+        }
+      } else {
+        schedules.push({
+          id: 'bell-' + Date.now(),
+          time,
+          label,
+          active: true,
+          fileName: ''
+        });
+      }
+      sortSchedules();
+      saveSchedulesMeta();
+      renderSchedules();
+      closeModal();
+      showToast('Jadwal bel berhasil disimpan.');
+    }
+
+    async function deleteSchedule(scheduleId) {
+      if (schedules.length <= 1) {
+        showToast('Minimal harus ada 1 jadwal bel.');
+        return;
+      }
+      await deleteAudioFromDB(scheduleId);
+      schedules = schedules.filter(s => s.id !== scheduleId);
+      saveSchedulesMeta();
+      renderSchedules();
+      showToast('Jadwal bel dihapus.');
+    }
+
+    // 8. RENDER KARTU JADWAL (GAYA KARTU BIRU MUDA + LONCENG EMAS SEPERTI GAMBAR REFERENSI)
+    function renderSchedules() {
+      const grid = document.getElementById('scheduleGrid');
+      grid.innerHTML = '';
+
+      schedules.forEach((item) => {
+        const isRinging = activeRingingId === item.id;
+        const formattedTime = item.time.replace(':', '.');
+        const hasAudio = Boolean(item.fileName);
+
+        const card = document.createElement('div');
+        card.className = `rounded-2xl p-4 transition-all border-2 shadow-sm relative ${
+          isRinging
+            ? 'card-ringing scale-[1.01]'
+            : item.active
+              ? 'bg-[#DCEFFA]/95 border-[#BBDDF8] hover:border-[#0A4D7C]/40'
+              : 'bg-slate-100/90 border-slate-200 opacity-65'
+        }`;
+
+        card.innerHTML = `
+          <!-- Baris Atas: Jam Besar Tebal, Keterangan & Ikon Lonceng Emas -->
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <button onclick="openEditModal('${item.id}')" title="Klik untuk ubah jam"
+                  class="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0B192C] hover:text-[#0A4D7C] transition tabular-nums cursor-pointer">
+                  ${formattedTime}
+                </button>
+                ${isRinging ? `
+                  <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase bg-amber-500 text-white animate-pulse">
+                    Berbunyi
+                  </span>
+                ` : ''}
+              </div>
+
+              <!-- Input Keterangan Bisa Diedit Langsung -->
+              <input type="text" value="${escapeHtml(item.label)}"
+                onchange="updateLabelInline('${item.id}', this.value)"
+                aria-label="Keterangan jadwal ${formattedTime}"
+                class="mt-0.5 w-full bg-transparent text-sm sm:text-base font-bold text-[#0B192C] border-b border-transparent hover:border-sky-400 focus:border-[#0A4D7C] focus:bg-white/70 focus:px-1.5 rounded outline-none transition" />
+            </div>
+
+            <!-- Ikon Lonceng Emas seperti Gambar Referensi -->
+            <div class="flex flex-col items-end gap-1.5">
+              <button onclick="triggerBell('${item.id}', true)" title="Klik untuk tes bunyi bel"
+                class="p-1 rounded-xl hover:bg-white/60 transition cursor-pointer">
+                <svg class="w-10 h-10 sm:w-11 sm:h-11 drop-shadow-sm ${isRinging ? 'animate-bell-ring' : ''}" viewBox="0 0 64 64" fill="none">
+                  <circle cx="32" cy="10" r="4" fill="#D97706"/>
+                  <path d="M32 13C20.5 13 14 21.5 14 33V43L9 48V51H55V48L50 43V33C50 21.5 43.5 13 32 13Z" fill="#FBBF24"/>
+                  <path d="M32 13C39 13 45 20 45 33V43L50 48V51H32V13Z" fill="#F59E0B"/>
+                  <path d="M25 51C25 54.866 28.134 58 32 58C35.866 58 39 54.866 39 51H25Z" fill="#B45309"/>
+                  <ellipse cx="24" cy="28" rx="2.5" ry="7" transform="rotate(15 24 28)" fill="#FEF3C7" opacity="0.75"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Baris Tengah: Info Audio Terunggah -->
+          <div class="mt-3 pt-2.5 border-t border-sky-200/80 flex items-center justify-between gap-2 text-xs">
+            <div class="flex items-center gap-1.5 min-w-0 flex-1">
+              <span class="shrink-0 w-2 h-2 rounded-full ${hasAudio ? 'bg-emerald-500' : 'bg-amber-500'}"></span>
+              <span class="truncate font-semibold ${hasAudio ? 'text-[#0A4D7C]' : 'text-slate-600'}" title="${hasAudio ? escapeHtml(item.fileName) : 'Nada Bel Standar (Belum unggah MP3)'}">
+                ${hasAudio ? escapeHtml(item.fileName) : 'Bel Standar (Default)'}
+              </span>
+            </div>
+
+            <!-- Sakelar Aktif/Nonaktif -->
+            <label class="inline-flex items-center cursor-pointer shrink-0" title="Aktifkan/Nonaktifkan jadwal ini">
+              <input type="checkbox" ${item.active ? 'checked' : ''} onchange="toggleScheduleActive('${item.id}')" class="sr-only peer">
+              <div class="w-9 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#0A4D7C] relative"></div>
+            </label>
+          </div>
+
+          <!-- Baris Bawah: Tombol Unggah Audio, Test Putar, Hapus Audio & Hapus Jadwal -->
+          <div class="mt-2.5 flex flex-wrap items-center gap-1.5">
+            <label class="flex-1 min-w-[115px] inline-flex items-center justify-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#0A4D7C] hover:bg-sky-900 text-white text-xs font-bold cursor-pointer transition shadow-2xs">
+              <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              <span>${hasAudio ? 'Ganti Audio' : 'Unggah Audio'}</span>
+              <input type="file" accept="audio/*" onchange="handleAudioUpload('${item.id}', this)" class="hidden" />
+            </label>
+
+            <button onclick="triggerBell('${item.id}', true)"
+              class="px-2.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition cursor-pointer flex items-center gap-1"
+              title="Putar suara bel sekarang">
+              <span>▶ Putar</span>
+            </button>
+
+            ${hasAudio ? `
+              <button onclick="removeUploadedAudio('${item.id}')"
+                class="px-2 py-1.5 rounded-xl bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 text-xs font-bold transition cursor-pointer"
+                title="Hapus file audio unggahan">
+                Reset
+              </button>
+            ` : ''}
+
+            <button onclick="deleteSchedule('${item.id}')"
+              class="p-1.5 rounded-xl bg-white/80 hover:bg-rose-100 text-slate-500 hover:text-rose-600 transition cursor-pointer"
+              title="Hapus jadwal jam ini">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+              </svg>
+            </button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // 9. PEMERIKSA WAKTU OTOMATIS SETIAP DETIK
+    function updateClockAndCheckSchedule() {
+      const now = new Date();
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mm = String(now.getMinutes()).padStart(2, '0');
+      const ss = String(now.getSeconds()).padStart(2, '0');
+      const currentHM = `${hh}:${mm}`;
+
+      document.getElementById('liveClock').textContent = `${hh}:${mm}:${ss}`;
+
+      const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+      document.getElementById('liveDate').textContent = now.toLocaleDateString('id-ID', options);
+
+      // Cek apakah detik == 00 dan cocok dengan jadwal aktif
+      if (ss === '00') {
+        const triggerKey = `${now.toDateString()}-${currentHM}`;
+        if (lastTriggeredKey !== triggerKey) {
+          const matchedSchedule = schedules.find(s => s.active && s.time === currentHM);
+          if (matchedSchedule) {
+            lastTriggeredKey = triggerKey;
+            triggerBell(matchedSchedule.id, false);
+          }
+        }
+      }
+
+      updateNextBellCountdown(now);
+    }
+
+    function updateNextBellCountdown(now) {
+      const activeList = schedules.filter(s => s.active);
+      const infoEl = document.getElementById('nextBellInfo');
+      const cdEl = document.getElementById('nextBellCountdown');
+
+      if (activeList.length === 0) {
+        infoEl.textContent = 'Tidak ada jadwal aktif';
+        cdEl.textContent = '--:--:--';
+        return;
+      }
+
+      let nextTarget = null;
+      let nextItem = null;
+
+      for (const item of activeList) {
+        const [h, m] = item.time.split(':').map(Number);
+        const target = new Date(now);
+        target.setHours(h, m, 0, 0);
+        if (target > now) {
+          nextTarget = target;
+          nextItem = item;
+          break;
+        }
+      }
+
+      // Jika semua jadwal hari ini sudah lewat, ambil jadwal pertama besok
+      if (!nextTarget) {
+        nextItem = activeList[0];
+        const [h, m] = nextItem.time.split(':').map(Number);
+        nextTarget = new Date(now);
+        nextTarget.setDate(nextTarget.getDate() + 1);
+        nextTarget.setHours(h, m, 0, 0);
+      }
+
+      const diffSec = Math.max(0, Math.floor((nextTarget - now) / 1000));
+      const remH = String(Math.floor(diffSec / 3600)).padStart(2, '0');
+      const remM = String(Math.floor((diffSec % 3600) / 60)).padStart(2, '0');
+      const remS = String(diffSec % 60).padStart(2, '0');
+
+      infoEl.textContent = `${nextItem.time.replace(':', '.')} - ${nextItem.label}`;
+      cdEl.textContent = `Dalam ${remH}:${remM}:${remS}`;
+    }
+
+    // Helper UI
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      document.getElementById('toastMessage').textContent = msg;
+      banner.classList.remove('hidden');
+    }
+
+    function hideToast() {
+      document.getElementById('toastBanner').classList.add('hidden');
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, (m) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[m]));
+    }
+
+    // INISIALISASI SAAT HALAMAN DIMUAT
+    window.addEventListener('DOMContentLoaded', () => {
+      loadSchedules();
+      renderSchedules();
+      updateClockAndCheckSchedule();
+      setInterval(updateClockAndCheckSchedule, 1000);
+    });
+  </script>
+</body>
+</html>
